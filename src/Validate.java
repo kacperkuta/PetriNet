@@ -61,26 +61,6 @@ public class Validate {
             }
 
             Set<Map<Place, Integer>> after = net.reachable(Collections.emptySet());
-            Set<Map<Place, Integer>> test = new HashSet<>();
-            Map<Place, Integer> m = new HashMap<>();
-            m.put(Place.D, 1);
-            test.add(m);
-
-
-            System.out.println(after.equals(test));
-            System.out.println(test.equals(after));
-
-
-
-            System.out.println();
-
-            //System.out.println(end);
-            Iterator<Map<Place, Integer>> it = after.iterator();
-            while(it.hasNext()) {
-                if (end.equals(it.next())) {
-                    //System.out.println("true");
-                }
-            }
 
             if (!after.equals(Collections.singleton(end))) {
                 error(3);
@@ -92,5 +72,5 @@ public class Validate {
         } catch (InterruptedException e) {
             error(4);
         }
-        }
+    }
 }

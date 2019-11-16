@@ -10,7 +10,8 @@ public class PetriNet<T> {
     private Semaphore waitingThreads;
     private Semaphore fireProtection = new Semaphore(1, true);
 
-    private int countUnfireable = 0;
+    private boolean isFirst;
+    private String firstName;
 
 
     public HashMap<T, Integer> getPlaces() {
@@ -39,7 +40,7 @@ public class PetriNet<T> {
         }
     }
 
-    private boolean isReachable(Transition<T> transition) {
+    private boolean isEnabled(Transition<T> transition) {
         for (InputArc<T> arc : transition.getInputArcs()) {
             if (places.get(arc.getPlace()) != null && arc.getWeight() > places.get(arc.getPlace())) {
                 return false;
@@ -68,11 +69,11 @@ public class PetriNet<T> {
         }
     }
 
-    private Transition<T> hasReachable(Collection<Transition<T>> transitions) {
+    private Transition<T> hasEnabled(Collection<Transition<T>> transitions) {
         Transition<T> t = null;
 
         for (Transition<T> e : transitions) {
-            if (isReachable(e)) {
+            if (isEnabled(e)) {
                 t = e;
                 break;
             }
@@ -80,38 +81,100 @@ public class PetriNet<T> {
         return t;
     }
 
-    private void fireReachable(Transition<T> t) {
+    private void fireEnabled(Transition<T> t) {
         for (InputArc<T> arc : t.getInputArcs()) {
-            if (places.get(arc.getPlace()) != null)
-                places.put(arc.getPlace(), places.get(arc.getPlace()) - arc.getWeight());
+            //System.out.println("input : "+ arc.getPlace());
+            places.replace(arc.getPlace(), places.get(arc.getPlace()) - arc.getWeight());
         }
 
         for (OutputArc<T> arc : t.getOutputArcs()) {
-            if (places.get(arc.getPlace()) != null)
-                places.put(arc.getPlace(), places.get(arc.getPlace()) + arc.getWeight());
+            //System.out.println("output : "+ arc.getPlace());
+            places.replace(arc.getPlace(), places.get(arc.getPlace()) + arc.getWeight());
         }
 
         for (ResetArc<T> arc : t.getResetArcs()) {
-            if (places.get(arc.getPlace()) != null)
-                places.put(arc.getPlace(), 0);
+            //System.out.println("reset : "+ arc.getPlace());
+            places.replace(arc.getPlace(), 0);
         }
     }
 
+    public void releaseHungered() throws InterruptedException {
+        fireProtection.acquire();
+        if (waitingThreads.hasQueuedThreads())
+            waitingThreads.release();
+        else
+            fireProtection.release();
+    }
+
     public Transition<T> fire(Collection<Transition<T>> transitions) throws InterruptedException {
-        Transition<T> t = hasReachable(transitions);
+        fireProtection.acquire();
+        //System.out.println(Thread.currentThread().getName() + " start");
+
+        while (true) {
+            Transition<T> t = hasEnabled(transitions);
+            if (t == null) {
+                if (!Thread.currentThread().getName().equals(firstName)) {
+                    if (isFirst) {
+                        isFirst = false;
+                        firstName = Thread.currentThread().getName();
+                    }
+                    if (waitingThreads.hasQueuedThreads()) {
+                        waitingThreads.release();
+                    } else {
+                        fireProtection.release();
+                    }
+                    waitingThreads.acquire();
+                } else {
+                    fireProtection.release();
+                    waitingThreads.acquire();
+                }
+            } else {
+                addEmptyPlaces(t);
+                fireEnabled(t);
+                isFirst = true;
+                firstName = null;
+                if (waitingThreads.hasQueuedThreads()) {
+                    waitingThreads.release();
+                } else {
+                    fireProtection.release();
+                }
+                //System.out.print(toString());
+                //System.out.println(Thread.currentThread().getName() + " finish");
+
+                return t;
+            }
+        }
+
+        /*
+
 
         if (t == null) {
+            if (waitingThreads.hasQueuedThreads()) {
+                waitingThreads.release();
+                System.out.println(waitingThreads.hasQueuedThreads());
+            } else {
+                fireProtection.release();
+            }
             waitingThreads.acquire();
             while (true) {
                 if (waitingThreads.getQueueLength() > countUnfireable) {
-                    t = hasReachable(transitions);
+                    t = hasEnabled(transitions);
                     if (t != null) {
-                        fireReachable(t);
+                        addEmptyPlaces(t);
+                        fireEnabled(t);
                         countUnfireable = 0;
-                        waitingThreads.release();
+                        if (waitingThreads.hasQueuedThreads())
+                            waitingThreads.release();
+                        else
+                            fireProtection.release();
+                        System.out.println(Thread.currentThread().getName() + " finish");
+
                         return t;
                     } else {
-                        waitingThreads.release();
+                        if (waitingThreads.hasQueuedThreads())
+                            waitingThreads.release();
+                        else
+                            fireProtection.release();
                         waitingThreads.acquire();
                     }
                 } else {
@@ -120,13 +183,20 @@ public class PetriNet<T> {
                 }
             }
         } else {
-            fireProtection.acquire();
             addEmptyPlaces(t);
-            fireReachable(t);
+            fireEnabled(t);
             countUnfireable = 0;
-            waitingThreads.release();
+            if (waitingThreads.hasQueuedThreads())
+                waitingThreads.release();
+            else
+                fireProtection.release();
+            //System.out.print(toString());
+            System.out.println(Thread.currentThread().getName() + " finish");
+
             return t;
         }
+        */
+
     }
 
     private boolean setContains(Set<Map<T, Integer>> set, Map<T, Integer> map) {
@@ -151,14 +221,12 @@ public class PetriNet<T> {
     }
 
     public Set<Map<T, Integer>> reachable(Collection<Transition<T>> transitions) {
-        //System.out.println(this.toString());
-
         Set<Map<T, Integer>> set = new HashSet<>();
         for (Transition<T> t : transitions) {
-            if (isReachable(t)) {
+            if (isEnabled(t)) {
                 PetriNet<T> copy = new PetriNet<>(this);
                 copy.addEmptyPlaces(t);
-                copy.fireReachable(t);
+                copy.fireEnabled(t);
                 Set<Map<T, Integer>> result = copy.reachable(transitions);
                 for (Map<T, Integer> m : result) {
                     if (!setContains(set, m))
@@ -170,10 +238,11 @@ public class PetriNet<T> {
             set.add(getPlaces());
 
         removePlacesWithNoTokens(set);
-        //set = new HashSet<>(set);
+        set = new HashSet<>(set);
         return set;
     }
 
+    @Override
     public String toString() {
         String places = "Places: \n";
         for (Map.Entry<T, Integer> e : getPlaces().entrySet()) {
@@ -182,6 +251,7 @@ public class PetriNet<T> {
             places += e.getValue();
             places += ", ";
         }
+        places += "\n";
         return places;
     }
 }
