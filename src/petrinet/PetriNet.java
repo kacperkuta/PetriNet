@@ -2,6 +2,8 @@ package petrinet;
 
 import java.util.*;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class PetriNet<T> {
     private HashMap<T, Integer> places;
@@ -10,7 +12,7 @@ public class PetriNet<T> {
     private Semaphore waitingThreads;
     private Semaphore fireProtection = new Semaphore(1, true);
 
-    private boolean isFirst;
+    private AtomicInteger waiting = new AtomicInteger(0);
     private String firstName;
 
 
@@ -108,39 +110,29 @@ public class PetriNet<T> {
 
     public Transition<T> fire(Collection<Transition<T>> transitions) throws InterruptedException {
         fireProtection.acquire();
+        Thread.sleep(15);
         //System.out.println(Thread.currentThread().getName() + " start");
-
+        //System.out.println(waiting);
         while (true) {
             Transition<T> t = hasEnabled(transitions);
             if (t == null) {
-                if (!Thread.currentThread().getName().equals(firstName)) {
-                    if (isFirst) {
-                        isFirst = false;
-                        firstName = Thread.currentThread().getName();
-                    }
-                    if (waitingThreads.hasQueuedThreads()) {
-                        waitingThreads.release();
-                    } else {
-                        fireProtection.release();
-                    }
-                    waitingThreads.acquire();
-                } else {
+                if (waiting.get() == 0) {
                     fireProtection.release();
-                    waitingThreads.acquire();
                 }
+                else {
+                    waitingThreads.release();
+                }
+                waiting.getAndIncrement();
+                waitingThreads.acquire();
+                waiting.getAndDecrement();
             } else {
                 addEmptyPlaces(t);
                 fireEnabled(t);
-                isFirst = true;
-                firstName = null;
-                if (waitingThreads.hasQueuedThreads()) {
-                    waitingThreads.release();
-                } else {
-                    fireProtection.release();
-                }
-                //System.out.print(toString());
                 //System.out.println(Thread.currentThread().getName() + " finish");
-
+                if (waiting.get() == 0)
+                    fireProtection.release();
+                else
+                    waitingThreads.release();
                 return t;
             }
         }
