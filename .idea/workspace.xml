@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e41e6f67-597e-41a5-bc86-b635cbda6001" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/petrinet/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/alternator/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PetriNet/petrinet/PetriNet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNet/petrinet/PetriNet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiplicator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/multiplicator/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/petrinet/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/petrinet/PetriNet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,13 +22,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/petrinet/PetriNet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="107" column="17" lean-forward="true" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+            <state relative-caret-position="362">
+              <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#PetriNet#0;class#PetriNet#0" />
                 <element signature="e#638#699#1" />
                 <element signature="method#PetriNet#1;class#PetriNet#0" />
                 <element signature="e#960#1021#1" />
+                <element signature="method#isEnabled#0;class#PetriNet#0" />
+                <element signature="e#1145#1302#1" />
+                <element signature="e#1247#1292#1" />
+                <element signature="e#1369#1513#1" />
+                <element signature="e#1458#1503#1" />
+                <element signature="method#addEmptyPlaces#0;class#PetriNet#0" />
+                <element signature="e#1660#1722#1" />
                 <element signature="e#1789#1851#1" />
                 <element signature="e#1910#1972#1" />
                 <element signature="e#2033#2095#1" />
@@ -56,8 +63,7 @@
                 <element signature="method#reachable#0;class#PetriNet#0" />
                 <element signature="e#7475#7602#0" />
                 <element signature="e#7634#7693#0" />
-                <element signature="method#toString#0;class#PetriNet#0" />
-                <element signature="e#8136#8274#1" />
+                <element signature="method#fire#0;class#PetriNet#0" />
               </folding>
             </state>
           </provider>
@@ -78,39 +84,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/alternator/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="475">
-              <caret line="81" column="46" lean-forward="true" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
+              <caret line="81" column="46" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/multiplicator/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+            <state relative-caret-position="1330">
+              <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
               <folding>
                 <element signature="method#createTransition#0;class#Mai#0" />
                 <element signature="method#createNet#0;class#Mai#0" />
                 <element signature="method#createTransitions#0;class#Main#0" />
                 <element signature="method#createFinishTransition#0;class#Main#0" />
                 <element signature="method#Count#0;class#Count#0;class#Multiplicator#0" />
-                <element signature="e#2680#2850#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/petrinet/Test_interrupt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -178,9 +171,9 @@
         <option value="$PROJECT_DIR$/src/multiplicator/Multiplicator.java" />
         <option value="$PROJECT_DIR$/src/petrinet/Pair.java" />
         <option value="$PROJECT_DIR$/src/petrinet/Test_interrupt.java" />
-        <option value="$PROJECT_DIR$/src/petrinet/PetriNet.java" />
         <option value="$PROJECT_DIR$/src/alternator/Main.java" />
         <option value="$PROJECT_DIR$/src/multiplicator/Main.java" />
+        <option value="$PROJECT_DIR$/src/petrinet/PetriNet.java" />
       </list>
     </option>
   </component>
@@ -247,7 +240,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test_interrupt">
+  <component name="RunManager" selected="Application.Validate (1)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multiplicator.Main" />
       <module name="PetriNet" />
@@ -309,10 +302,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Validate (1)" />
         <item itemvalue="Application.Test_interrupt" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Validate (1)" />
         <item itemvalue="Application.Multiplicator" />
       </list>
     </recent_temporary>
@@ -342,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573999015006</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Working - thread-safe and always fair">
+      <created>1574037554952</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574037554952</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -380,7 +380,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Alternator zaczyna działać" />
     <MESSAGE value="Seems to be working, fire method is not thread-safe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Seems to be working, fire method is not thread-safe" />
+    <MESSAGE value="Working - thread-safe and always fair" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working - thread-safe and always fair" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/PetriNet.java" />
@@ -538,9 +539,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/petrinet/Test_interrupt.java">
+    <entry file="file://$PROJECT_DIR$/src/petrinet/Pair.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding>
+            <element signature="e#171#172#0" expanded="true" />
+            <element signature="e#195#196#0" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/petrinet/Test_interrupt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -548,15 +562,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/multiplicator/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1330">
+          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+          <folding>
+            <element signature="method#createTransition#0;class#Mai#0" />
+            <element signature="method#createNet#0;class#Mai#0" />
+            <element signature="method#createTransitions#0;class#Main#0" />
+            <element signature="method#createFinishTransition#0;class#Main#0" />
+            <element signature="method#Count#0;class#Count#0;class#Multiplicator#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/petrinet/PetriNet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="107" column="17" lean-forward="true" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+        <state relative-caret-position="362">
+          <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#PetriNet#0;class#PetriNet#0" />
             <element signature="e#638#699#1" />
             <element signature="method#PetriNet#1;class#PetriNet#0" />
             <element signature="e#960#1021#1" />
+            <element signature="method#isEnabled#0;class#PetriNet#0" />
+            <element signature="e#1145#1302#1" />
+            <element signature="e#1247#1292#1" />
+            <element signature="e#1369#1513#1" />
+            <element signature="e#1458#1503#1" />
+            <element signature="method#addEmptyPlaces#0;class#PetriNet#0" />
+            <element signature="e#1660#1722#1" />
             <element signature="e#1789#1851#1" />
             <element signature="e#1910#1972#1" />
             <element signature="e#2033#2095#1" />
@@ -583,21 +619,7 @@
             <element signature="method#reachable#0;class#PetriNet#0" />
             <element signature="e#7475#7602#0" />
             <element signature="e#7634#7693#0" />
-            <element signature="method#toString#0;class#PetriNet#0" />
-            <element signature="e#8136#8274#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/petrinet/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding>
-            <element signature="e#171#172#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
-            <element signature="e#225#226#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
+            <element signature="method#fire#0;class#PetriNet#0" />
           </folding>
         </state>
       </provider>
@@ -605,22 +627,7 @@
     <entry file="file://$PROJECT_DIR$/src/alternator/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
-          <caret line="81" column="46" lean-forward="true" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/multiplicator/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
-          <folding>
-            <element signature="method#createTransition#0;class#Mai#0" />
-            <element signature="method#createNet#0;class#Mai#0" />
-            <element signature="method#createTransitions#0;class#Main#0" />
-            <element signature="method#createFinishTransition#0;class#Main#0" />
-            <element signature="method#Count#0;class#Count#0;class#Multiplicator#0" />
-            <element signature="e#2680#2850#0" />
-          </folding>
+          <caret line="81" column="46" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
         </state>
       </provider>
     </entry>
