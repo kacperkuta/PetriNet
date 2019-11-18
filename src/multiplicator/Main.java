@@ -4,7 +4,6 @@ import petrinet.PetriNet;
 import petrinet.Transition;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class Main {
@@ -46,6 +45,15 @@ public class Main {
         return collection;
     }
 
+    private static Transition<String> createFinishTransition() {
+        Set<String> set = new HashSet<>();
+        set.add(A);
+        set.add(B);
+        set.add(result);
+
+        return new Transition<>(Collections.emptyMap(), Collections.emptySet(), set, Collections.emptyMap());
+    }
+
     private static class Count implements Runnable {
 
         private PetriNet<String> net;
@@ -54,23 +62,25 @@ public class Main {
         @Override
         public void run() {
             int i = 0;
-            while (true) {
-                try {
+            try {
+                while (true) {
                     net.fire(transitions);
                     i++;
-                } catch (InterruptedException e) {
-                    System.out.println(Thread.currentThread().getName() + " fired: " + i);
                 }
+            } catch (InterruptedException e) {
+                System.out.println(Thread.currentThread().getName() + " fired: " + i);
+            } finally {
+                Thread.currentThread().interrupt();
             }
         }
 
-        public Count(PetriNet<String> net, Collection<Transition<String>> transitions) {
+        private Count(PetriNet<String> net, Collection<Transition<String>> transitions) {
             this.net = net;
             this.transitions = transitions;
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
         int b = scan.nextInt();
@@ -78,35 +88,34 @@ public class Main {
         PetriNet<String> net = createNet(a, b);
 
         Collection<Transition<String>> collection = createTransitions(a, b);
+        Transition<String> finish = createFinishTransition();
 
-        Set<String> set = new HashSet<>();
-        set.add(A);
-        set.add(B);
-        set.add(result);
-
-        Transition<String> finish = new Transition<>(Collections.emptyMap(), Collections.emptySet(), set, Collections.emptyMap());
-
-        Set<Thread> threads = new HashSet<>();
+        ThreadGroup threads = new ThreadGroup("threads");
         for (int i = 0 ; i < THREADS; i++) {
-            Thread t = new Thread(new Count(net, collection));
-            threads.add(t);
+            Thread t = new Thread(threads, new Count(net, collection));
             t.start();
         }
 
         Thread t = new Thread(() -> {
             try {
                 net.fire(Collections.singleton(finish));
-                System.out.println("Result: "+ net.getPlaces().get(resultDivided));
+                Integer r = net.getPlaces().get(resultDivided);
+                if (r == null)
+                    r = 0;
+                System.out.println("Result: " + r);
             } catch (InterruptedException e) {
                 System.out.println(Thread.currentThread().getName() + " interupted");
             }
         });
         t.start();
-        t.join();
-
-        for (Thread th : threads) {
-            th.interrupt();
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            System.out.println(t.getName() + " interrupted");
         }
 
+        threads.interrupt();
+
+        scan.close();
     }
 }

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e41e6f67-597e-41a5-bc86-b635cbda6001" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/multiplicator/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/petrinet/Pair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PetriNet/petrinet/PetriNet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNet/petrinet/PetriNet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiplicator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/multiplicator/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/petrinet/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/petrinet/PetriNet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,20 +23,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/petrinet/PetriNet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="112" column="24" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
+            <state relative-caret-position="456">
+              <caret line="107" column="17" lean-forward="true" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
               <folding>
                 <element signature="method#PetriNet#0;class#PetriNet#0" />
                 <element signature="e#638#699#1" />
                 <element signature="method#PetriNet#1;class#PetriNet#0" />
                 <element signature="e#960#1021#1" />
-                <element signature="method#isEnabled#0;class#PetriNet#0" />
-                <element signature="e#1145#1302#1" />
-                <element signature="e#1247#1292#1" />
-                <element signature="e#1369#1513#1" />
-                <element signature="e#1458#1503#1" />
-                <element signature="method#addEmptyPlaces#0;class#PetriNet#0" />
-                <element signature="e#1660#1722#1" />
                 <element signature="e#1789#1851#1" />
                 <element signature="e#1910#1972#1" />
                 <element signature="e#2033#2095#1" />
@@ -46,18 +40,22 @@
                 <element signature="e#2484#2647#1" />
                 <element signature="e#2700#2864#1" />
                 <element signature="e#2915#3035#1" />
-                <element signature="method#releaseHungered#0;class#PetriNet#0" />
-                <element signature="e#4774#6600#0" />
                 <element signature="method#setContains#0;class#PetriNet#0" />
+                <element signature="e#6361#6448#1" />
+                <element signature="e#6482#6526#1" />
                 <element signature="e#6728#6799#1" />
                 <element signature="method#removePlacesWithNoTokens#0;class#PetriNet#0" />
-                <element signature="e#6937#7206#1" />
+                <element signature="e#7836#8165#1" />
                 <element signature="e#7031#7118#1" />
+                <element signature="e#8011#8067#1" />
                 <element signature="e#7152#7196#1" />
+                <element signature="method#reachableRecursive#0;class#PetriNet#0" />
+                <element signature="e#8323#8354#1" />
+                <element signature="e#6976#7393#1" />
+                <element signature="e#7008#7383#1" />
                 <element signature="method#reachable#0;class#PetriNet#0" />
-                <element signature="e#7393#7810#1" />
-                <element signature="e#7425#7800#1" />
-                <element signature="e#7685#7786#1" />
+                <element signature="e#7475#7602#0" />
+                <element signature="e#7634#7693#0" />
                 <element signature="method#toString#0;class#PetriNet#0" />
                 <element signature="e#8136#8274#1" />
               </folding>
@@ -66,16 +64,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/petrinet/Pair.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+              <folding>
+                <element signature="e#171#172#0" expanded="true" />
+                <element signature="e#195#196#0" expanded="true" />
+                <element signature="e#225#226#0" expanded="true" />
+                <element signature="e#249#250#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alternator/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
-              <folding>
-                <element signature="method#entryProtocol#0;class#Alternator#0" />
-                <element signature="method#finalProtocol#0;class#Alternator#0" />
-                <element signature="method#createPetriNet#0;class#Alternator#0" />
-                <element signature="class#Runner#0;class#Main#0" />
-              </folding>
+            <state relative-caret-position="475">
+              <caret line="81" column="46" lean-forward="true" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -83,20 +90,27 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/multiplicator/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
+            <state relative-caret-position="475">
+              <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
               <folding>
                 <element signature="method#createTransition#0;class#Mai#0" />
                 <element signature="method#createNet#0;class#Mai#0" />
                 <element signature="method#createTransitions#0;class#Main#0" />
-                <element signature="class#Count#0;class#Multiplicator#0" />
-                <element signature="method#run#0;class#Count#0;class#Multiplicator#0" />
-                <element signature="e#1282#1504#1" />
-                <element signature="e#1331#1393#0" />
-                <element signature="e#1450#1496#0" />
+                <element signature="method#createFinishTransition#0;class#Main#0" />
                 <element signature="method#Count#0;class#Count#0;class#Multiplicator#0" />
-                <element signature="e#2367#2417#1" />
                 <element signature="e#2680#2850#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/petrinet/Test_interrupt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,16 +175,19 @@
         <option value="$PROJECT_DIR$/src/petrinet/MyHashSet.java" />
         <option value="$PROJECT_DIR$/src/Validate.java" />
         <option value="$PROJECT_DIR$/src/alternator/Alternator.java" />
-        <option value="$PROJECT_DIR$/src/petrinet/PetriNet.java" />
         <option value="$PROJECT_DIR$/src/multiplicator/Multiplicator.java" />
-        <option value="$PROJECT_DIR$/src/multiplicator/Main.java" />
+        <option value="$PROJECT_DIR$/src/petrinet/Pair.java" />
+        <option value="$PROJECT_DIR$/src/petrinet/Test_interrupt.java" />
+        <option value="$PROJECT_DIR$/src/petrinet/PetriNet.java" />
         <option value="$PROJECT_DIR$/src/alternator/Main.java" />
+        <option value="$PROJECT_DIR$/src/multiplicator/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1914" />
-    <option name="height" value="1048" />
+    <option name="x" value="-1" />
+    <option name="width" value="1922" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -216,7 +233,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -230,13 +247,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Alternator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="alternator.Alternator" />
+  <component name="RunManager" selected="Application.Test_interrupt">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multiplicator.Main" />
       <module name="PetriNet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="alternator.*" />
+          <option name="PATTERN" value="multiplicator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -270,15 +287,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Validate (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Validate" />
-      <module name="PetriNet" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Validate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="petrinet.Validate" />
+    <configuration name="Test_interrupt" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="petrinet.Test_interrupt" />
       <module name="PetriNet" />
       <extension name="coverage">
         <pattern>
@@ -290,13 +300,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Validate (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Validate" />
+      <module name="PetriNet" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test_interrupt" />
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Multiplicator" />
-        <item itemvalue="Application.Alternator" />
         <item itemvalue="Application.Validate (1)" />
-        <item itemvalue="Application.Validate" />
+        <item itemvalue="Application.Multiplicator" />
       </list>
     </recent_temporary>
   </component>
@@ -318,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573945329618</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Seems to be working, fire method is not thread-safe">
+      <created>1573999015005</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573999015006</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -334,12 +358,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4392114" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6845564" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978093" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32858709" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32858709" />
@@ -355,7 +379,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Alternator zaczyna działać" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alternator zaczyna działać" />
+    <MESSAGE value="Seems to be working, fire method is not thread-safe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Seems to be working, fire method is not thread-safe" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/PetriNet.java" />
@@ -513,22 +538,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/petrinet/Test_interrupt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/petrinet/PetriNet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="112" column="24" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
+        <state relative-caret-position="456">
+          <caret line="107" column="17" lean-forward="true" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
           <folding>
             <element signature="method#PetriNet#0;class#PetriNet#0" />
             <element signature="e#638#699#1" />
             <element signature="method#PetriNet#1;class#PetriNet#0" />
             <element signature="e#960#1021#1" />
-            <element signature="method#isEnabled#0;class#PetriNet#0" />
-            <element signature="e#1145#1302#1" />
-            <element signature="e#1247#1292#1" />
-            <element signature="e#1369#1513#1" />
-            <element signature="e#1458#1503#1" />
-            <element signature="method#addEmptyPlaces#0;class#PetriNet#0" />
-            <element signature="e#1660#1722#1" />
             <element signature="e#1789#1851#1" />
             <element signature="e#1910#1972#1" />
             <element signature="e#2033#2095#1" />
@@ -539,52 +567,58 @@
             <element signature="e#2484#2647#1" />
             <element signature="e#2700#2864#1" />
             <element signature="e#2915#3035#1" />
-            <element signature="method#releaseHungered#0;class#PetriNet#0" />
-            <element signature="e#4774#6600#0" />
             <element signature="method#setContains#0;class#PetriNet#0" />
+            <element signature="e#6361#6448#1" />
+            <element signature="e#6482#6526#1" />
             <element signature="e#6728#6799#1" />
             <element signature="method#removePlacesWithNoTokens#0;class#PetriNet#0" />
-            <element signature="e#6937#7206#1" />
+            <element signature="e#7836#8165#1" />
             <element signature="e#7031#7118#1" />
+            <element signature="e#8011#8067#1" />
             <element signature="e#7152#7196#1" />
+            <element signature="method#reachableRecursive#0;class#PetriNet#0" />
+            <element signature="e#8323#8354#1" />
+            <element signature="e#6976#7393#1" />
+            <element signature="e#7008#7383#1" />
             <element signature="method#reachable#0;class#PetriNet#0" />
-            <element signature="e#7393#7810#1" />
-            <element signature="e#7425#7800#1" />
-            <element signature="e#7685#7786#1" />
+            <element signature="e#7475#7602#0" />
+            <element signature="e#7634#7693#0" />
             <element signature="method#toString#0;class#PetriNet#0" />
             <element signature="e#8136#8274#1" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/petrinet/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding>
+            <element signature="e#171#172#0" expanded="true" />
+            <element signature="e#195#196#0" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/alternator/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
-          <folding>
-            <element signature="method#entryProtocol#0;class#Alternator#0" />
-            <element signature="method#finalProtocol#0;class#Alternator#0" />
-            <element signature="method#createPetriNet#0;class#Alternator#0" />
-            <element signature="class#Runner#0;class#Main#0" />
-          </folding>
+        <state relative-caret-position="475">
+          <caret line="81" column="46" lean-forward="true" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/multiplicator/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
+        <state relative-caret-position="475">
+          <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
           <folding>
             <element signature="method#createTransition#0;class#Mai#0" />
             <element signature="method#createNet#0;class#Mai#0" />
             <element signature="method#createTransitions#0;class#Main#0" />
-            <element signature="class#Count#0;class#Multiplicator#0" />
-            <element signature="method#run#0;class#Count#0;class#Multiplicator#0" />
-            <element signature="e#1282#1504#1" />
-            <element signature="e#1331#1393#0" />
-            <element signature="e#1450#1496#0" />
+            <element signature="method#createFinishTransition#0;class#Main#0" />
             <element signature="method#Count#0;class#Count#0;class#Multiplicator#0" />
-            <element signature="e#2367#2417#1" />
             <element signature="e#2680#2850#0" />
           </folding>
         </state>
